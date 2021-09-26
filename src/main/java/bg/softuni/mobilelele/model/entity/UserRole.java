@@ -1,14 +1,14 @@
-package bg.softuni.mobilelele.model;
+package bg.softuni.mobilelele.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import bg.softuni.mobilelele.model.enumerated.Role;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
-public class UserRole extends ID{
+public class UserRole extends BaseEntity {
     @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     private Role name;
 
     public UserRole() {
@@ -22,7 +22,8 @@ public class UserRole extends ID{
         return name;
     }
 
-    public void setName(Role name) {
+    public UserRole setName(Role name) {
         this.name = name;
+        return this;
     }
 }
