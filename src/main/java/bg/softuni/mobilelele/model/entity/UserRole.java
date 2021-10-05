@@ -1,6 +1,6 @@
 package bg.softuni.mobilelele.model.entity;
 
-import bg.softuni.mobilelele.model.enumerated.Role;
+import bg.softuni.mobilelele.model.entity.enumerated.Role;
 
 import javax.persistence.*;
 

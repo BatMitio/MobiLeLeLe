@@ -1,10 +1,9 @@
 package bg.softuni.mobilelele.model.entity;
 
-import bg.softuni.mobilelele.model.enumerated.Engine;
-import bg.softuni.mobilelele.model.enumerated.Transmission;
+import bg.softuni.mobilelele.model.entity.enumerated.Engine;
+import bg.softuni.mobilelele.model.entity.enumerated.Transmission;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "offers")
@@ -19,8 +18,9 @@ public class Offer extends BaseEntity {
     @Column(nullable = true)
     private Integer mileage;
     @Column(nullable = true)
-    private Double price;
+    private Integer price;
     @Column(nullable = true)
+    @Enumerated(EnumType.STRING)
     private Transmission transmission;
     @Column(nullable = true)
     private Integer year;
@@ -32,7 +32,7 @@ public class Offer extends BaseEntity {
     public Offer() {
     }
 
-    public Offer(String description, Engine engine, String imageUrl, Integer mileage, Double price, Transmission transmission, Integer year, Model model, User seller) {
+    public Offer(String description, Engine engine, String imageUrl, Integer mileage, Integer price, Transmission transmission, Integer year, Model model, User seller) {
         this.description = description;
         this.engine = engine;
         this.imageUrl = imageUrl;
@@ -80,11 +80,11 @@ public class Offer extends BaseEntity {
         return this;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public Offer setPrice(Double price) {
+    public Offer setPrice(Integer price) {
         this.price = price;
         return this;
     }

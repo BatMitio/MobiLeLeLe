@@ -18,13 +18,22 @@ public class User extends BaseEntity {
     private String lastName;
     @Column(nullable = true)
     private boolean isActive;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<UserRole> roles = new HashSet<>();
     @Column(nullable = true)
     private String imageUrl;
 
 
     public User() {
+    }
+
+    public User(String username, String password, String firstName, String lastName, boolean isActive, String imageUrl) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.isActive = isActive;
+        this.imageUrl = imageUrl;
     }
 
     public User(String username, String password, String firstName, String lastName, boolean isActive, Set<UserRole> roles, String imageUrl) {
@@ -97,6 +106,11 @@ public class User extends BaseEntity {
 
     public User setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public User addRole(UserRole userRole) {
+        roles.add(userRole);
         return this;
     }
 }

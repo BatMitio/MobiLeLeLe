@@ -1,19 +1,23 @@
 package bg.softuni.mobilelele.model.service;
 
+import bg.softuni.mobilelele.model.entity.UserRole;
+
 public class UserRegisterServiceModel {
     private String firstName;
     private String lastName;
     private String username;
     private String rawPassword;
+    private UserRole userRole;
 
     public UserRegisterServiceModel() {
     }
 
-    public UserRegisterServiceModel(String firstName, String lastName, String username, String rawPassword) {
+    public UserRegisterServiceModel(String firstName, String lastName, String username, String rawPassword, UserRole userRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.rawPassword = rawPassword;
+        this.userRole = userRole;
     }
 
     public String getFirstName() {
@@ -49,6 +53,15 @@ public class UserRegisterServiceModel {
 
     public UserRegisterServiceModel setRawPassword(String rawPassword) {
         this.rawPassword = rawPassword;
+        return this;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public UserRegisterServiceModel setUserRole(UserRole userRole) {
+        this.userRole = userRole;
         return this;
     }
 }

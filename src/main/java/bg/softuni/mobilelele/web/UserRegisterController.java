@@ -42,14 +42,12 @@ public class UserRegisterController {
                         .setFirstName(userData.getFirstName())
                         .setLastName(userData.getLastName())
                         .setRawPassword(userData.getPassword())
+                        .setUserRole(userData.getUserRole())
         );
 
-        LOGGER.info("{} ({} {}) tried to register with {}. Success = {}",
-                userData.getUsername(),
-                userData.getFirstName(),
-                userData.getLastName(),
-                userData.getPassword(),
-                registerSuccessful);
+        if(registerSuccessful){
+            return "redirect:/";
+        }
 
         return "redirect:/users/register";
     }

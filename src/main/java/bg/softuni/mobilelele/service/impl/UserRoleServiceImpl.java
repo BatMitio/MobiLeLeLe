@@ -1,13 +1,12 @@
 package bg.softuni.mobilelele.service.impl;
 
 import bg.softuni.mobilelele.model.entity.UserRole;
-import bg.softuni.mobilelele.model.enumerated.Role;
+import bg.softuni.mobilelele.model.entity.enumerated.Role;
 import bg.softuni.mobilelele.repository.UserRoleRepository;
 import bg.softuni.mobilelele.service.UserRoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
@@ -23,7 +22,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public Optional<UserRole> findByRole(Role user) {
+    public UserRole findByRole(Role user) {
         return userRoleRepository.findByName(user);
     }
 }

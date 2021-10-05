@@ -1,10 +1,8 @@
 package bg.softuni.mobilelele.model.entity;
 
-import bg.softuni.mobilelele.model.enumerated.Category;
-import org.springframework.lang.NonNull;
+import bg.softuni.mobilelele.model.entity.enumerated.Category;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "models")
@@ -20,7 +18,7 @@ public class Model extends BaseEntity {
     private Integer startYear;
     @Column(nullable = true)
     private Integer endYear;
-    @ManyToOne(cascade = CascadeType.ALL, optional = true)
+    @ManyToOne(optional = true)
     private Brand brand;
 
     public Model() {
